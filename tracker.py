@@ -10,11 +10,17 @@ class Tracker():
             into week as dictionaries.
             
             Args:
-                path (optional str): the path to the 
+                path (optional str): the path to the file with exercise info
+            Side effects:
+                creates a Tracker
+            Raises:
+                Value Error: will raise if any line violates the format
         """
         week = [[] for num in range(7)]
 
         if (path is not None):
+            # All exercises come in the format
+            # push-ups,50,30,Mo
                 regex = r'''(?x)^
                     (?P<workout_type>[-\w\s])
                     ,
