@@ -84,3 +84,10 @@ class Tracker():
     
     def __str__(self):
         pass
+    def delete_activity():
+        """
+        A method to delete an activity that has not been completed
+        
+        Atrributes:
+            del_workout(str) = workout that needs to be removed.
+        """
