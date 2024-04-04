@@ -106,7 +106,24 @@ class Tracker():
         Atrributes:
             del_workout(str) = workout that needs to be removed.
         """
-        
+def display_summary(tracker):
+    '''
+        Display a summary of the workout activities within a week from the 
+        provided Tracker instance. 
+
+        Args:
+            tracker (Tracker): An instance of the Tracker class containing 
+            workout information.
+
+        Returns:
+            None
+
+        Side effects:
+            Printing out the workout summary for the week using the __str__ method
+            of the Tracker class.
+
+    '''
+    print (f" Stay committed! Your weekly workout summary:\n{tracker}")  
         
     def export_data():
         with open(filepath, "w", encoding = "utf-8"):
