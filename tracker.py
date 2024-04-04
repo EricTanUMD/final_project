@@ -20,9 +20,11 @@ class Tracker():
 
         if (path is not None):
             # All exercises come in the format
-            # push-ups,50,30,Mo
+            # muscle_group,workout_type,time(mins),reps,day
                 regex = r'''(?x)^
-                    (?P<workout_type>[-\w\s])
+                    (?P<muscle_group>[-\w\s]+)
+                    ,
+                    (?P<workout_type>[-\w\s]+)
                     ,
                     (?P<time>\d+)
                     ,
@@ -40,42 +42,49 @@ class Tracker():
                         else: # check which day each exercise is in
                             if (match.group("day") == "Mo"):
                                 week[0] = {
+                                    "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
                                 }
                             elif (match.group("day") == "Tu"):
                                 week[1] = {
+                                    "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
                                 }
                             elif (match.group("day") == "We"):
                                 week[2] = {
+                                    "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
                                 }
                             elif (match.group("day") == "Th"):
                                 week[3] = {
+                                    "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
                                 }
                             elif (match.group("day") == "Fr"):
                                 week[4] = {
+                                    "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
                                 }
                             elif (match.group("day") == "Sa"):
                                 week[5] = {
+                                    "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
                                 }
                             elif (match.group("day") == "Su"):
                                 week[6] = {
+                                    "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
