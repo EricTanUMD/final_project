@@ -83,7 +83,12 @@ class Tracker():
                 
     
     def __str__(self):
+        """ String representation of a Tracker
+        
+            Returns: The exercises from each day as a string. 
+        """
         pass
+        
     def delete_activity():
         """
         A method to delete an activity that has not been completed
