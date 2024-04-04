@@ -1,2 +1,2 @@
-push-ups,50,30,Mo
-sit-ups,30,40,Tu
+core,push-ups,50,30,Mo
+quads,sit-ups,30,40,Tu
