@@ -4,6 +4,7 @@ import sys
 
 class Tracker():
     """ Representation of a fitness tracker for a week"""
+    # made by Eric Tan
     def __init__(self, path = None):
         """ Initializes a Tracker using a path to a textfile containing
             Strings of a specific pattern. These are used to add the information
@@ -90,7 +91,7 @@ class Tracker():
                                     "reps": match.group("reps")
                                 }
                 
-    
+    # Made by Eric Tan
     def __str__(self):
         """ String representation of a Tracker
         
