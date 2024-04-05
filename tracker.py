@@ -106,7 +106,7 @@ class Tracker():
             del_workout(str) = workout that needs to be removed.
         """
         
-    def export_data():
+    def export_data(self, filepath):
         with open(filepath, "w", encoding = "utf-8"):
             pass
         
