@@ -158,8 +158,15 @@ class Tracker():
             raise IndexError("Day or activity is out of range")
         
     def export_data(self, filepath):
-        with open(filepath, "w", encoding = "utf-8"):
-            pass
+        """ 
+    A method that exports the str method to a textfile.
+
+    Args:
+        filepath: A file for the str method to write too.
+    """
+    with open(filepath, "w", encoding = "utf-8") as f:
+        f.write(str(self))
+            
         
 def display_summary(tracker):
     '''
