@@ -112,13 +112,50 @@ class Tracker():
         # Day:
         # a line for each activity's information     
         
-    def delete_activity():
+    def delete_activity(self, day_index, activity_index):
+        # made by Ibrahim Barry
         """
         A method to delete an activity that has not been completed
         
-        Atrributes:
-            del_workout(str) = workout that needs to be removed.
+        Args:
+            day_index (int) : Index of the day in the week (0 for Monday, 1 for Tuesday, 2 for Wednesday, etc.)
+            activity_index (int) : Index of the activity to delete
+        
+        Raises:
+            IndexError: If there is an index out of range, it will raise the index error.
         """
+        
+        try:
+            del self.week[day_index][activity_index]
+        except IndexError:
+            raise IndexError("Day or activity is out of range.")
+        
+    def __delitem__(self, key):
+        """ Deletes an activity from a specific day using del tracker[day_index][activity_index]
+
+            Args:
+                key (tuple): A tuple containing the day and the activity being deleted.
+        """
+        day_index, activity_index = key
+        self.delete_activity(day_index, activity_index)
+        
+    def __getitem__(self, key):
+        """ Allows user to find activities using the same syntax as the __delitem__ function
+
+            Args:
+                key (tuple): Tuple containing the day and the activity the user would like to access.
+                
+            Returns: 
+                dict: Activity information
+                
+            Raises:
+                IndexError: If out of range, function raises an index error.
+        """
+        day_index, activity_index = key
+        try:
+            return self.week[day_index][activity_index]
+        except IndexError:
+            raise IndexError("Day or activity is out of range")
         
     def export_data(self, filepath):
         with open(filepath, "w", encoding = "utf-8"):
