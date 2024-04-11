@@ -16,7 +16,8 @@ class Tracker():
             Raises:
                 Value Error: will raise if any line violates the format
         """
-        week = [[] for num in range(7)]
+        # create a list of lists. Each index represents a day of the week.
+        self.week = [[] for _ in range(7)]
 
         if (path is not None):
             # All exercises come in the format
@@ -41,49 +42,49 @@ class Tracker():
                             raise ValueError("Wrong format for exercise")
                         else: # check which day each exercise is in
                             if (match.group("day") == "Mo"):
-                                week[0] = {
+                                self.week[0] = {
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
                                 }
                             elif (match.group("day") == "Tu"):
-                                week[1] = {
+                                self.week[1] = {
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
                                 }
                             elif (match.group("day") == "We"):
-                                week[2] = {
+                                self.week[2] = {
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
                                 }
                             elif (match.group("day") == "Th"):
-                                week[3] = {
+                                self.week[3] = {
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
                                 }
                             elif (match.group("day") == "Fr"):
-                                week[4] = {
+                                self.week[4] = {
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
                                 }
                             elif (match.group("day") == "Sa"):
-                                week[5] = {
+                                self.week[5] = {
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
                                 }
                             elif (match.group("day") == "Su"):
-                                week[6] = {
+                                self.week[6] = {
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
@@ -94,9 +95,22 @@ class Tracker():
     def __str__(self):
         """ String representation of a Tracker
         
-            Returns: The exercises from each day as a string. 
+            Returns: A string listing the number of exercises and one which day 
         """
-        pass
+        weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", 
+                    "Saturday", "Sunday"]
+        result = ""
+        # access each day and its activities. Day is the index, activities is 
+        # the list of activities. Returns 
+        for day, activities in enumerate(self.week):
+            weekday = weekdays[day]
+            result += f"{weekday}:\n"
+            for activity in activities:
+                result += f"    Muscle Group:{activity["muscle_group"]} Workout:{activity["workout"]} Time: {activity["time"]} Reps: {activity["reps"]}\n"
+        return result 
+        # should return a massive string int the format of
+        # Day:
+        # a line for each activity's information     
         
     def delete_activity():
         """
