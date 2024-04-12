@@ -174,8 +174,8 @@ class Tracker():
     Args:
         filepath: A file for the str method to write too.
     """
-    with open(filepath, "w", encoding = "utf-8") as f:
-        f.write(str(self))
+        with open(filepath, "w", encoding = "utf-8") as f:
+            f.write(str(self))
     
     # Created by Jaylen Carrillo
     def recommend_exercises(self, muscle_group):
