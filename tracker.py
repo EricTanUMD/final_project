@@ -38,7 +38,7 @@ class Tracker():
                 with open(path, "r") as file:
                     for line in file():
                         match = re.match(regex, line)
-                        if (match == None):
+                        if (match is None):
                             raise ValueError("Wrong format for exercise")
                         else: # check which day each exercise is in
                             if (match.group("day") == "Mo"):
