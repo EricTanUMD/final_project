@@ -204,6 +204,10 @@ class Tracker():
 
 # Created by Jaylen Carrillo
 def main():
+    """ Prompts the user to input a muscle group and prints a list of up to
+    three recommended exercises for that muscle group. This function uses 
+    recommend_exercises method to retrieve the exercise recommendations.
+    """
     tracker = Tracker()
     print("Enter the muscle group you want to focus on today: ")
     muscle_group = input().strip()
