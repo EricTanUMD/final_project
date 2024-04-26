@@ -47,7 +47,7 @@ class Tracker():
                 # designated day
                 with open(path, "r") as file:
                     for line in file:
-                        match = re.match(regex, str(line))
+                        match = re.match(regex, line)
                         if (match is None):
                             raise ValueError("Wrong format for exercise")
                         else: # check which day each exercise is in
@@ -120,6 +120,9 @@ class Tracker():
         return result 
         # should return a massive string int the format of
         # Day:
+        # a line for each activity's information    
+        # should return a massive string int the format of
+        # Day:
         # a line for each activity's information     
         
     def delete_activity(self, day_index, activity_index):
@@ -169,15 +172,55 @@ class Tracker():
         
     def export_data(self, filepath):
         """ 
-            A method that exports the str method to a textfile.
+    A method that exports the str method to a textfile.
 
-            Args:
-            filepath: A file for the str method to write too.
-        """
+    Args:
+        filepath: A file for the str method to write too.
+    """
         with open(filepath, "w", encoding = "utf-8") as f:
             f.write(str(self))
-            
+    
+    # Created by Jaylen Carrillo
+    def recommend_exercises(self, muscle_group):
+        """ Recommends up to three random exercises for the specified muscle 
+        group by looking up the class's exercises dictionary.
         
+        Args:
+            muscle_group (str): The name of the muscle group for which to 
+            recommend exercises.
+            
+        Returns:
+            list of str: A list containing up to three recommended exercises as
+            strings if the muscle group is found.
+            
+            str: A message indicating no exercises were found for the muscle
+            group.
+        """
+        muscle_group = muscle_group.lower()
+        # finds the list of exercises for the given muscle group
+        recommended = self.exercises.get(muscle_group)
+        # if not found then returns a message
+        if not recommended:
+            return f"No exercises found for muscle group: {muscle_group}"
+        num_exercises = min(len(recommended), 3)
+        return random.sample(recommended, num_exercises)
+
+# Created by Jaylen Carrillo
+def main():
+    """ Prompts the user to input a muscle group and prints a list of up to
+    three recommended exercises for that muscle group. This function uses 
+    recommend_exercises method to retrieve the exercise recommendations.
+    """
+    tracker = Tracker()
+    print("Enter the muscle group you want to focus on today: ")
+    muscle_group = input().strip()
+    recommended_exercises = tracker.recommend_exercises(muscle_group)
+    print(f"Recommended exercises for {muscle_group}: {recommended_exercises}")
+    
+if __name__ == "__main__":
+    main()
+    
+    
 def display_summary(tracker):
     '''
         Display a summary of the workout activities within a week from the 
