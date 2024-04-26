@@ -36,8 +36,8 @@ class Tracker():
                 # Parse through the file and insert workout information into the
                 # designated day
                 with open(path, "r") as file:
-                    for line in file():
-                        match = re.match(regex, line)
+                    for line in file:
+                        match = re.match(regex, str(line))
                         if (match is None):
                             raise ValueError("Wrong format for exercise")
                         else: # check which day each exercise is in
@@ -106,7 +106,7 @@ class Tracker():
             weekday = weekdays[day]
             result += f"{weekday}:\n"
             for activity in activities:
-                result += f"    Muscle Group:{activity["muscle_group"]} Workout:{activity["workout"]} Time: {activity["time"]} Reps: {activity["reps"]}\n"
+                result += f"Muscle Group:{activity} Workout:{activity} Time: {activity} Reps: {activity}\n"
         return result 
         # should return a massive string int the format of
         # Day:
@@ -159,13 +159,13 @@ class Tracker():
         
     def export_data(self, filepath):
         """ 
-    A method that exports the str method to a textfile.
+            A method that exports the str method to a textfile.
 
-    Args:
-        filepath: A file for the str method to write too.
-    """
-    with open(filepath, "w", encoding = "utf-8") as f:
-        f.write(str(self))
+            Args:
+            filepath: A file for the str method to write too.
+        """
+        with open(filepath, "w", encoding = "utf-8") as f:
+            f.write(str(self))
             
         
 def display_summary(tracker):
