@@ -5,6 +5,7 @@ import random
 
 class Tracker():
     """ Representation of a fitness tracker for a week"""
+    # Made by Eric Tan
     def __init__(self, path = None):
         """ Initializes a Tracker using a path to a textfile containing
             Strings of a specific pattern. These are used to add the information
