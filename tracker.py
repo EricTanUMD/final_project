@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 import re
 import sys
+import random
 
 class Tracker():
     """ Representation of a fitness tracker for a week"""
@@ -18,6 +19,15 @@ class Tracker():
         """
         # create a list of lists. Each index represents a day of the week.
         self.week = [[] for _ in range(7)]
+        
+        self.exercises = {
+            "legs": ["Sumo Squats", "Lunges", "Leg Press", "Goblet Squats", "Calf Raises"],
+            "chest": ["Bench Press", "Incline Bench Press", "Dumbbell Flyes", "Push-ups"],
+            "core": ["Planks", "Russian Twists", "Leg Raises", "Cable Crossovers", "Mountain Climbers"],
+            "arms": ["Bicep Curls", "Tricep Dips", "Hammer Curls", "Concentration Curls", "Tricep Extensions"],
+            "back": ["Pull-ups", "Deadlifts", "Lat Pulldowns", "Bent Over Rows", "Seated Cable Rows", "Reverse Flyes"],
+            "shoulders": ["Shoulder Press", "Lateral Raises", "Front Raises", "Shrugs"]
+            }
 
         if (path is not None):
             # All exercises come in the format
