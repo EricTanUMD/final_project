@@ -52,54 +52,54 @@ class Tracker():
                             raise ValueError("Wrong format for exercise")
                         else: # check which day each exercise is in
                             if (match.group("day") == "Mo"):
-                                self.week[0] = {
+                                self.week[0].append( {
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
-                                }
+                                })
                             elif (match.group("day") == "Tu"):
-                                self.week[1] = {
+                                self.week[1].append ({
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
-                                }
+                                })
                             elif (match.group("day") == "We"):
-                                self.week[2] = {
+                                self.week[2].append({
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
-                                }
+                                })
                             elif (match.group("day") == "Th"):
-                                self.week[3] = {
+                                self.week[3].append({
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
-                                }
+                                })
                             elif (match.group("day") == "Fr"):
-                                self.week[4] = {
+                                self.week[4].append({
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
-                                }
+                                })
                             elif (match.group("day") == "Sa"):
-                                self.week[5] = {
+                                self.week[5].append({
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
-                                }
+                                })
                             elif (match.group("day") == "Su"):
-                                self.week[6] = {
+                                self.week[6].append({
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
-                                }
+                                })
                 
     # Made by Eric Tan
     def __str__(self):
