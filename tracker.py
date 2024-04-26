@@ -131,6 +131,7 @@ class Tracker():
             raise IndexError("Day or activity is out of range.")
         
     def __delitem__(self, key):
+        #Made by Ibrahim Barry
         """ Deletes an activity from a specific day using del tracker[day_index][activity_index]
 
             Args:
@@ -139,7 +140,12 @@ class Tracker():
         day_index, activity_index = key
         self.delete_activity(day_index, activity_index)
         
+        
+        
+        
+        
     def __getitem__(self, key):
+        #Made by Ibrahim Barry
         """ Allows user to find activities using the same syntax as the __delitem__ function
 
             Args:
