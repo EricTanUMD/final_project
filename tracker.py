@@ -5,7 +5,7 @@ import random
 
 class Tracker():
     """ Representation of a fitness tracker for a week"""
-    # Made by Eric Tan
+    # Made by Eric Tan, Regular Expression and Optional Parameters
     def __init__(self, path = None):
         """ Initializes a Tracker using a path to a textfile containing
             Strings of a specific pattern. These are used to add the information
@@ -127,7 +127,7 @@ class Tracker():
         # a line for each activity's information     
         
     def delete_activity(self, day_index, activity_index):
-        # made by Ibrahim Barry
+        # made by Ibrahim Barry, Magic Methods
         """
         A method to delete an activity that has not been completed
         
@@ -172,6 +172,7 @@ class Tracker():
             raise IndexError("Day or activity is out of range")
         
     def export_data(self, filepath):
+    # Peterson, With statements
         """ 
     A method that exports the str method to a textfile.
 
