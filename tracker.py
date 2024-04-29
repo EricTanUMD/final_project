@@ -5,6 +5,7 @@ import random
 
 class Tracker():
     """ Representation of a fitness tracker for a week"""
+    # Made by Eric Tan, Regular Expression and Optional Parameters
     def __init__(self, path = None):
         """ Initializes a Tracker using a path to a textfile containing
             Strings of a specific pattern. These are used to add the information
@@ -52,54 +53,54 @@ class Tracker():
                             raise ValueError("Wrong format for exercise")
                         else: # check which day each exercise is in
                             if (match.group("day") == "Mo"):
-                                self.week[0] = {
+                                self.week[0].append( {
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
-                                }
+                                })
                             elif (match.group("day") == "Tu"):
-                                self.week[1] = {
+                                self.week[1].append ({
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
-                                }
+                                })
                             elif (match.group("day") == "We"):
-                                self.week[2] = {
+                                self.week[2].append({
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
-                                }
+                                })
                             elif (match.group("day") == "Th"):
-                                self.week[3] = {
+                                self.week[3].append({
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
-                                }
+                                })
                             elif (match.group("day") == "Fr"):
-                                self.week[4] = {
+                                self.week[4].append({
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
-                                }
+                                })
                             elif (match.group("day") == "Sa"):
-                                self.week[5] = {
+                                self.week[5].append({
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
-                                }
+                                })
                             elif (match.group("day") == "Su"):
-                                self.week[6] = {
+                                self.week[6].append({
                                     "muscle_group": match.group("muscle_group"),
                                     "workout": match.group("workout_type"),
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
-                                }
+                                })
                 
     # Made by Eric Tan
     def __str__(self):
@@ -126,7 +127,7 @@ class Tracker():
         # a line for each activity's information     
         
     def delete_activity(self, day_index, activity_index):
-        # made by Ibrahim Barry
+        # made by Ibrahim Barry, Magic Methods
         """
         A method to delete an activity that has not been completed
         
@@ -175,6 +176,7 @@ class Tracker():
             raise IndexError("Day or activity is out of range")
         
     def export_data(self, filepath):
+    # Peterson, With statements
         """ 
     A method that exports the str method to a textfile.
 
