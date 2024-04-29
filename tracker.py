@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 import re
 import sys
+import random
 
 class Tracker():
     """ Representation of a fitness tracker for a week"""
@@ -18,6 +19,15 @@ class Tracker():
         """
         # create a list of lists. Each index represents a day of the week.
         self.week = [[] for _ in range(7)]
+        
+        self.exercises = {
+            "legs": ["Sumo Squats", "Lunges", "Leg Press", "Goblet Squats", "Calf Raises"],
+            "chest": ["Bench Press", "Incline Bench Press", "Dumbbell Flyes", "Push-ups"],
+            "core": ["Planks", "Russian Twists", "Leg Raises", "Cable Crossovers", "Mountain Climbers"],
+            "arms": ["Bicep Curls", "Tricep Dips", "Hammer Curls", "Concentration Curls", "Tricep Extensions"],
+            "back": ["Pull-ups", "Deadlifts", "Lat Pulldowns", "Bent Over Rows", "Seated Cable Rows", "Reverse Flyes"],
+            "shoulders": ["Shoulder Press", "Lateral Raises", "Front Raises", "Shrugs"]
+            }
 
         if (path is not None):
             # All exercises come in the format
@@ -36,9 +46,9 @@ class Tracker():
                 # Parse through the file and insert workout information into the
                 # designated day
                 with open(path, "r") as file:
-                    for line in file():
+                    for line in file:
                         match = re.match(regex, line)
-                        if (match == None):
+                        if (match is None):
                             raise ValueError("Wrong format for exercise")
                         else: # check which day each exercise is in
                             if (match.group("day") == "Mo"):
@@ -106,8 +116,11 @@ class Tracker():
             weekday = weekdays[day]
             result += f"{weekday}:\n"
             for activity in activities:
-                result += f"    Muscle Group:{activity["muscle_group"]} Workout:{activity["workout"]} Time: {activity["time"]} Reps: {activity["reps"]}\n"
+                result += f"Muscle Group:{activity} Workout:{activity} Time: {activity} Reps: {activity}\n"
         return result 
+        # should return a massive string int the format of
+        # Day:
+        # a line for each activity's information    
         # should return a massive string int the format of
         # Day:
         # a line for each activity's information     
@@ -170,10 +183,50 @@ class Tracker():
     Args:
         filepath: A file for the str method to write too.
     """
-    with open(filepath, "w", encoding = "utf-8") as f:
-        f.write(str(self))
-            
+        with open(filepath, "w", encoding = "utf-8") as f:
+            f.write(str(self))
+    
+    # Created by Jaylen Carrillo
+    def recommend_exercises(self, muscle_group):
+        """ Recommends up to three random exercises for the specified muscle 
+        group by looking up the class's exercises dictionary.
         
+        Args:
+            muscle_group (str): The name of the muscle group for which to 
+            recommend exercises.
+            
+        Returns:
+            list of str: A list containing up to three recommended exercises as
+            strings if the muscle group is found.
+            
+            str: A message indicating no exercises were found for the muscle
+            group.
+        """
+        muscle_group = muscle_group.lower()
+        # finds the list of exercises for the given muscle group
+        recommended = self.exercises.get(muscle_group)
+        # if not found then returns a message
+        if not recommended:
+            return f"No exercises found for muscle group: {muscle_group}"
+        num_exercises = min(len(recommended), 3)
+        return random.sample(recommended, num_exercises)
+
+# Created by Jaylen Carrillo
+def main():
+    """ Prompts the user to input a muscle group and prints a list of up to
+    three recommended exercises for that muscle group. This function uses 
+    recommend_exercises method to retrieve the exercise recommendations.
+    """
+    tracker = Tracker()
+    print("Enter the muscle group you want to focus on today: ")
+    muscle_group = input().strip()
+    recommended_exercises = tracker.recommend_exercises(muscle_group)
+    print(f"Recommended exercises for {muscle_group}: {recommended_exercises}")
+    
+if __name__ == "__main__":
+    main()
+    
+    
 def display_summary(tracker):
     '''
         Display a summary of the workout activities within a week from the 
