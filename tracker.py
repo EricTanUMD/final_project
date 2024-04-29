@@ -145,15 +145,13 @@ class Tracker():
         
     def __delitem__(self, key):
         #Made by Ibrahim Barry
-        """ Deletes an activity from a specific day using del tracker[day_index][activity_index]
+        """ Deletes an entire days worth of activities.
 
             Args:
-                key (tuple): A tuple containing the day and the activity being deleted.
+                key (): Index of the day you wish to remove. 
         """
-        day_index, activity_index = key
-        self.delete_activity(day_index, activity_index)
-        
-        
+
+        self.exercises[key].clear()        
         
         
         
@@ -165,7 +163,7 @@ class Tracker():
                 key (tuple): Tuple containing the day and the activity the user would like to access.
                 
             Returns: 
-                dict: Activity information
+                dict: Activity information.
                 
             Raises:
                 IndexError: If out of range, function raises an index error.
