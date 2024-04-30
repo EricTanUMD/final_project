@@ -5,7 +5,8 @@ import random
 
 class Tracker():
     """ Representation of a fitness tracker for a week"""
-    # Made by Eric Tan, Regular Expression and Optional Parameters
+    # Made by Eric Tan, Regular Expression and Optional Parameters, Generator 
+    # expression
     def __init__(self, path = None):
         """ Initializes a Tracker using a path to a textfile containing
             Strings of a specific pattern. These are used to add the information
@@ -21,6 +22,7 @@ class Tracker():
         # create a list of lists. Each index represents a day of the week.
         self.week = [[] for _ in range(7)]
         
+        # internally stored exercises.
         self.exercises = {
             "legs": ["Sumo Squats", "Lunges", "Leg Press", "Goblet Squats", "Calf Raises"],
             "chest": ["Bench Press", "Incline Bench Press", "Dumbbell Flyes", "Push-ups"],
@@ -119,12 +121,9 @@ class Tracker():
             for activity in activities:
                 result += f"Muscle Group:{activity} Workout:{activity} Time: {activity} Reps: {activity}\n"
         return result 
-        # should return a massive string int the format of
+        # should return a massive string in the format of
         # Day:
-        # a line for each activity's information    
-        # should return a massive string int the format of
-        # Day:
-        # a line for each activity's information     
+        # a line for each activity's information       
         
     def delete_activity(self, day_index, activity_index):
         # made by Ibrahim Barry, Magic Methods
@@ -172,7 +171,7 @@ class Tracker():
             raise IndexError("Day or activity is out of range")
         
     def export_data(self, filepath):
-    # Peterson, With statements
+    # Alexander, With statements
         """ 
     A method that exports the str method to a textfile.
 
