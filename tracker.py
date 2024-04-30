@@ -184,6 +184,17 @@ class Tracker():
     """
         with open(filepath, "w", encoding = "utf-8") as f:
             f.write(str(self))
+            
+    def max_reps(self, day):
+        #Peterson, Keys
+        weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", 
+                    "Saturday", "Sunday"]
+        
+        other = sorted((self.week[day]), key=lambda s: s["reps"])
+        print(self.week)
+        return f"Max reps from {weekdays[day]} is {other[0]["reps"]}"
+        
+
     
     # Created by Jaylen Carrillo
     def recommend_exercises(self, muscle_group):
@@ -283,7 +294,8 @@ def main():
     muscle_group = input().strip()
     recommended_exercises = tracker.recommend_exercises(muscle_group)
     print(f"Recommended exercises for {muscle_group}: {recommended_exercises}")
-    
+    tracker.export_data("test.txt")
+    print(tracker.max_reps(0))
     tracker.workout_visualization() #Calling the workout_visualization method(Kanyi)
     display_summary(tracker) # Calling display_summary method(Kanyi)
 
