@@ -51,6 +51,7 @@ class Tracker():
                 with open(path, "r") as file:
                     for line in file:
                         match = re.match(regex, line)
+                        
                         if (match is None):
                             raise ValueError("Wrong format for exercise")
                         else: # check which day each exercise is in
@@ -151,26 +152,26 @@ class Tracker():
                 key (): Index of the day you wish to remove. 
         """
 
-        self.exercises[key].clear()        
+        self.week[key].clear()        
         
         
         
     def __getitem__(self, key):
         #Made by Ibrahim Barry
-        """ Allows user to find activities using the same syntax as the __delitem__ function
+        """ Allows user to find activities from a day using the same syntax as the __delitem__ function
 
             Args:
-                key (tuple): Tuple containing the day and the activity the user would like to access.
+                key (int): Number containing the day and the activity the user would like to access.
                 
             Returns: 
                 dict: Activity information.
                 
             Raises:
-                IndexError: If out of range, function raises an index error.
+                IndexError: If day is out of range, function raises an index error.
         """
-        day_index, activity_index = key
+        day_index = key
         try:
-            return self.week[day_index][activity_index]
+            return self.week[day_index]
         except IndexError:
             raise IndexError("Day or activity is out of range")
         
@@ -191,7 +192,7 @@ class Tracker():
                     "Saturday", "Sunday"]
         
         other = sorted((self.week[day]), key=lambda s: s["reps"])
-        print(self.week)
+        
         return f"Max reps from {weekdays[day]} is {other[0]["reps"]}"
         
 
@@ -289,7 +290,8 @@ def main():
     three recommended exercises for that muscle group. This function uses 
     recommend_exercises method to retrieve the exercise recommendations.
     """
-    tracker = Tracker()
+    filename = input("Input file name.")
+    tracker = Tracker(filename)
     print("Enter the muscle group you want to focus on today: ")
     muscle_group = input().strip()
     recommended_exercises = tracker.recommend_exercises(muscle_group)
@@ -298,6 +300,9 @@ def main():
     print(tracker.max_reps(0))
     tracker.workout_visualization() #Calling the workout_visualization method(Kanyi)
     display_summary(tracker) # Calling display_summary method(Kanyi)
+    tracker.__getitem__(int(input("Pick a day you would like to see your activity: ")))
+    
+    
 
 if __name__ == "__main__":
     main()
