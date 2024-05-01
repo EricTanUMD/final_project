@@ -160,8 +160,9 @@ class Tracker():
 
         return f"Max reps from {weekdays[day]} is {other[0]['reps']}"
 
-        # Created by Jaylen Carrillo
-
+        
+    # Created by Jaylen Carrillo
+    # Conditional statement & f-string containing expression
     def recommend_exercises(self, muscle_group):
         """ Recommends up to three random exercises for the specified muscle
         group by looking up the class's exercises dictionary.
@@ -177,15 +178,14 @@ class Tracker():
             str: A message indicating no exercises were found for the muscle
             group.
         """
+        # used .lower() because the 
         muscle_group = muscle_group.lower()
         # finds the list of exercises for the given muscle group
         recommended = self.exercises.get(muscle_group)
-        # if not found then returns a message
-        if not recommended:
-            return f"No exercises found for muscle group: {muscle_group}"
-        num_exercises = min(len(recommended), 3)
-        return random.sample(recommended, num_exercises)
-
+        # if not found, it will return this message
+        message = f"No exercises found for muscle group: {muscle_group}"
+        return random.sample(recommended, min(len(recommended), 3)) if recommended else message
+    
     # Designed by Kanyi
     def workout_visualization(self):
         '''
@@ -226,8 +226,8 @@ class Tracker():
         print(" ")
         print("Thanks for Providing the Data, Hope you Enjoy!")
         print("______________________________________________")
-
-
+        
+    
 # Designed by Kanyi
 def display_summary(tracker):
     '''
@@ -248,14 +248,13 @@ def display_summary(tracker):
     print("\n")
     print(f" Stay committed! Your weekly workout summary:\n{tracker}")
 
-
 # Created by Jaylen Carrillo
 def main():
     """ Prompts the user to input a muscle group and prints a list of up to
     three recommended exercises for that muscle group. This function uses
     recommend_exercises method to retrieve the exercise recommendations.
     """
-    filename = input("Input file name :")
+    filename = input("Input file name: ")
     tracker = Tracker(filename)
     print("Enter the muscle group you want to focus on today: ")
     muscle_group = input().strip()
