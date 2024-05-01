@@ -178,7 +178,6 @@ class Tracker():
             str: A message indicating no exercises were found for the muscle
             group.
         """
-        # used .lower() because the 
         muscle_group = muscle_group.lower()
         # finds the list of exercises for the given muscle group
         recommended = self.exercises.get(muscle_group)
