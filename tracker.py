@@ -247,7 +247,6 @@ def display_summary(tracker):
     print("\n")
     print(f" Stay committed! Your weekly workout summary:\n{tracker}")
 
-# Created by Jaylen Carrillo
 def main():
     """ Prompts the user to input a muscle group and prints a list of up to
     three recommended exercises for that muscle group. This function uses
