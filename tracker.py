@@ -35,10 +35,14 @@ class Tracker():
             "back": ["Pull-ups", "Deadlifts", "Lat Pulldowns", "Bent Over Rows", "Seated Cable Rows", "Reverse Flyes"],
             "shoulders": ["Shoulder Press", "Lateral Raises", "Front Raises", "Shrugs"]
             }
-
+        
         if (path is not None):
             # All exercises come in the format
             # muscle_group,workout_type,time(mins),reps,day
+                # Parse through the file and insert workout information into the
+                # designated day
+                days = {"Mo": 0, "Tu": 1, "We": 2, "Th": 3, "Fr": 4, 
+                           "Sa": 5, "Su": 6}
                 regex = r'''(?x)^
                     (?P<muscle_group>[-\w\s]+)
                     ,
@@ -50,16 +54,9 @@ class Tracker():
                     ,
                     (?P<day>\w{2})
                     '''
-                # Parse through the file and insert workout information into the
-                # designated day
-                
-                days = {"Mo": 0, "Tu": 1, "We": 2, "Th": 3, "Fr": 4, 
-                           "Sa": 5, "Su": 6}
-                
                 with open(path, "r") as file:
                     for line in file:
                         match = re.match(regex, line)
-                        
                         if (match is None):
                             raise ValueError("Wrong format for exercise")
                         else: # check which day each exercise is in
@@ -71,8 +68,6 @@ class Tracker():
                                     "time": match.group("time"),
                                     "reps": match.group("reps")
                                 })
-            
-                
     # Made by Eric Tan
     def __str__(self):
         """ String representation of a Tracker
@@ -83,12 +78,12 @@ class Tracker():
                     "Saturday", "Sunday"]
         result = ""
         # access each day and its activities. Day is the index, activities is 
-        # the list of activities. Returns 
+        # the list of activities. Returns a string representation afterwards
         for day, activities in enumerate(self.week):
             weekday = weekdays[day]
             result += f"{weekday}:\n"
             for activity in activities:
-                result += f"Muscle Group:{activity} Workout:{activity} Time: {activity} Reps: {activity}\n"
+                result += f"Muscle Group: {activity["muscle_group"]} Workout: {"workout_type"} Time: {activity["time"]} Reps: {activity["reps"]}\n"
         return result 
         # should return a massive string in the format of
         # Day:
