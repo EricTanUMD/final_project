@@ -10,8 +10,7 @@ class Tracker():
                 week (list(lists(dict)): a list with a list containing exercise
                 information for the week.
     """
-    # Made by Eric Tan, Regular Expression and Optional Parameters, Generator 
-    # expression
+    # Made by Eric Tan, Regular Expression and Generator expression
     def __init__(self, path = None):
         """ Initializes a Tracker using a path to a textfile containing
             Strings of a specific pattern. These are used to add the information
@@ -180,7 +179,7 @@ class Tracker():
             raise IndexError("Day or activity is out of range")
         
     def export_data(self, filepath):
-    # Alexander, With statements
+    # Alexander, With statements key function
         """ 
     A method that exports the str method to a textfile.
 
