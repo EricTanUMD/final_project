@@ -39,11 +39,11 @@ class Tracker():
         if (path is not None):
             # All exercises come in the format
             # muscle_group,workout_type,time(mins),reps,day
-                # Parse through the file and insert workout information into the
-                # designated day
-                days = {"Mo": 0, "Tu": 1, "We": 2, "Th": 3, "Fr": 4, 
+            # Parse through the file and insert workout information into the
+            # designated day
+            days = {"Mo": 0, "Tu": 1, "We": 2, "Th": 3, "Fr": 4, 
                            "Sa": 5, "Su": 6}
-                regex = r'''(?x)^
+            regex = r'''(?x)^
                     (?P<muscle_group>[-\w\s]+)
                     ,
                     (?P<workout_type>[-\w\s]+)
@@ -54,20 +54,20 @@ class Tracker():
                     ,
                     (?P<day>\w{2})
                     '''
-                with open(path, "r") as file:
-                    for line in file:
-                        match = re.match(regex, line)
-                        if (match is None):
+            with open(path, "r") as file:
+                for line in file:
+                    match = re.match(regex, line)
+                    if (match is None):
                             raise ValueError("Wrong format for exercise")
-                        else: # check which day each exercise is in
-                            day_index = days.get(match.group("day"))
-                            if day_index is not None:
-                                self.week[day_index].append({
-                                    "muscle_group": match.group("muscle_group"),
-                                    "workout": match.group("workout_type"),
-                                    "time": match.group("time"),
-                                    "reps": match.group("reps")
-                                })
+                    else: # check which day each exercise is in
+                        day_index = days.get(match.group("day"))
+                        if day_index is not None:
+                            self.week[day_index].append({
+                                "muscle_group": match.group("muscle_group"),
+                                "workout": match.group("workout_type"),
+                                "time": match.group("time"),
+                                "reps": match.group("reps")
+                            })
     # Made by Eric Tan
     def __str__(self):
         """ String representation of a Tracker
