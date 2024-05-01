@@ -4,7 +4,12 @@ import sys
 import random
 import matplotlib.pyplot as plt
 class Tracker():
-    """ Representation of a fitness tracker for a week"""
+    """ Representation of a fitness tracker for a week
+    
+        Attributes:
+                week (list(lists(dict)): a list with a list containing exercise
+                information for the week.
+    """
     # Made by Eric Tan, Regular Expression and Optional Parameters, Generator 
     # expression
     def __init__(self, path = None):
@@ -108,7 +113,7 @@ class Tracker():
     def __str__(self):
         """ String representation of a Tracker
         
-            Returns: A string listing the number of exercises and one which day 
+            Returns: A string listing the number of exercises for each day 
         """
         weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", 
                     "Saturday", "Sunday"]
