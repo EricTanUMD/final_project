@@ -1,5 +1,5 @@
 chest,push-ups,50,30,Mo
 core,sit-ups,30,40,Tu
 arms,bicep-curl,5,60,We
-legs,leg press,5,60,Thu
-shoulders,5,40,Fri
+legs,leg press,5,60,Th
+shoulders,5,40,Fr
