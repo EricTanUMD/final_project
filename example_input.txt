@@ -1,6 +1,6 @@
-chest,push-ups,50,30,Mo
-core,sit-ups,30,40,Tu
-arms,bicep-curl,5,60,We
+chest,push ups,50,30,Mo
+core,sit ups,30,40,Tu
+arms,bicep curl,5,60,We
 legs,leg press,5,60,Th
 shoulders,shoulder press,5,40,Fr
 core,leg raises,30,40,Sa
