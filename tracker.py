@@ -141,7 +141,7 @@ class Tracker():
             raise IndexError("Day or activity is out of range")
 
     def export_data(self, filepath):
-        # Alexander, With statements key function
+        # Peterson, With statements 
         """
     A method that exports the str method to a textfile.
 
