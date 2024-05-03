@@ -74,8 +74,6 @@ class Tracker():
         """
         with open(filepath) as json_file:
             self.exercises = json.load(json_file)
-        # test
-        print("Loaded exercises:", self.exercises)
     
     # Made by Eric Tan
     def __str__(self):
