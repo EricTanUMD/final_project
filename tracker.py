@@ -31,9 +31,8 @@ class Tracker():
         self.week = [[] for _ in range(7)]
     
         # externally stored exercises in json file created by Jaylen Carrillo
-        self.exercises = None
         self.load_data('exercises.json')
-         
+
         if (path is not None):
             # All exercises come in the format
             # muscle_group,workout_type,time(mins),reps,day
@@ -75,6 +74,8 @@ class Tracker():
         """
         with open(filepath) as json_file:
             self.exercises = json.load(json_file)
+        # test
+        print("Loaded exercises:", self.exercises)
     
     # Made by Eric Tan
     def __str__(self):
