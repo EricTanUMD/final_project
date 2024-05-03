@@ -1,0 +1,14 @@
+Monday:
+Muscle Group: chest Workout: push ups Time: 50 Reps: 30
+Tuesday:
+Muscle Group: core Workout: sit ups Time: 30 Reps: 40
+Wednesday:
+Muscle Group: arms Workout: bicep curl Time: 5 Reps: 60
+Thursday:
+Muscle Group: legs Workout: leg press Time: 5 Reps: 60
+Friday:
+Muscle Group: shoulders Workout: shoulder press Time: 5 Reps: 40
+Saturday:
+Muscle Group: core Workout: leg raises Time: 30 Reps: 40
+Sunday:
+Muscle Group: arms Workout:  hammer curls Time: 5 Reps: 30
