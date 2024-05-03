@@ -29,10 +29,9 @@ class Tracker():
         """
         # create a list of lists. Each index represents a day of the week.
         self.week = [[] for _ in range(7)]
-        
-        # ask
-        self.exercises = None
+    
         # externally stored exercises in json file created by Jaylen Carrillo
+        self.exercises = None
         self.load_data('exercises.json')
          
         if (path is not None):
