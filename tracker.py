@@ -83,7 +83,7 @@ class Tracker():
             weekday = weekdays[day]
             result += f"{weekday}:\n"
             for activity in activities:
-                result += f"Muscle Group: {activity["muscle_group"]} Workout: {"workout_type"} Time: {activity["time"]} Reps: {activity["reps"]}\n"
+                result += f"Muscle Group: {activity["muscle_group"]} Workout: {activity["workout"]} Time: {activity["time"]} Reps: {activity["reps"]}\n"
         return result 
         # should return a massive string in the format of
         # Day:
