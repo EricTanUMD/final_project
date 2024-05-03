@@ -169,9 +169,8 @@ class Tracker():
             Raises:
                 IndexError: If day is out of range, function raises an index error.
         """
-        day_index = key
         try:
-            return self.week[day_index]
+            return self.week[key]
         except IndexError:
             raise IndexError("Day or activity is out of range")
         
