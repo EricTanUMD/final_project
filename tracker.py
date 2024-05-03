@@ -29,16 +29,6 @@ class Tracker():
         # create a list of lists. Each index represents a day of the week.
         self.week = [[] for _ in range(7)]
 
-        # internally stored exercises.
-        self.exercises = {
-            "legs": ["Sumo Squats", "Lunges", "Leg Press", "Goblet Squats", "Calf Raises"],
-            "chest": ["Bench Press", "Incline Bench Press", "Dumbbell Flyes", "Push-ups"],
-            "core": ["Planks", "Russian Twists", "Leg Raises", "Cable Crossovers", "Mountain Climbers"],
-            "arms": ["Bicep Curls", "Tricep Dips", "Hammer Curls", "Concentration Curls", "Tricep Extensions"],
-            "back": ["Pull-ups", "Deadlifts", "Lat Pulldowns", "Bent Over Rows", "Seated Cable Rows", "Reverse Flyes"],
-            "shoulders": ["Shoulder Press", "Lateral Raises", "Front Raises", "Shrugs"]
-        }
-
         if (path is not None):
             # All exercises come in the format
             # muscle_group,workout_type,time(mins),reps,day
@@ -162,7 +152,7 @@ class Tracker():
 
         
     # Created by Jaylen Carrillo
-    # Conditional statement & f-string containing expression
+    # Conditional expression
     def recommend_exercises(self, muscle_group):
         """ Recommends up to three random exercises for the specified muscle
         group by looking up the class's exercises dictionary.
