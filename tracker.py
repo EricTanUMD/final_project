@@ -70,9 +70,10 @@ class Tracker():
                             
     # Created by Jaylen Carrillo
     # Use of json.load 
-    """
-    """
     def load_data(self, filepath):
+        """
+        will come back to this
+        """
         with open(filepath) as json_file:
             self.exercises = json.load(json_file)
     
