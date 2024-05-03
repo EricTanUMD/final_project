@@ -30,6 +30,9 @@ class Tracker():
         # create a list of lists. Each index represents a day of the week.
         self.week = [[] for _ in range(7)]
 
+        # externally stored exercises in json file created by Jaylen Carrillo
+        self.load_exercises('exercises.json')
+         
         if (path is not None):
             # All exercises come in the format
             # muscle_group,workout_type,time(mins),reps,day
@@ -62,7 +65,13 @@ class Tracker():
                                 "time": match.group("time"),
                                 "reps": match.group("reps")
                             })
-
+    # Created by Jaylen Carrillo
+    # Use of json.load 
+    def load_exercises(self, filepath):
+        with open(filepath) as json_file:
+            self.exercises = json.load(json_file)
+            
+    
     # Made by Eric Tan
     def __str__(self):
         """ String representation of a Tracker
