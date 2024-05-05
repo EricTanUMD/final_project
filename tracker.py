@@ -137,9 +137,8 @@ class Tracker():
             Raises:
                 IndexError: If day is out of range, function raises an index error.
         """
-        day_index = key
         try:
-            return self.week[day_index]
+            return self.week[key]
         except IndexError:
             raise IndexError("Day or activity is out of range")
 
@@ -192,44 +191,49 @@ class Tracker():
     def workout_visualization(self):
         '''
             Visualizes the total workout duration for each day of the week.
-            Prompts the user to input workout details for each day.
+            Uses sample data for the visualization.
         '''
         days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         total_times = []
         print("\n")
-        print("_______________________________________________")
-        print("             # Visualization                   ")
-        print("_______________________________________________")
-        print("Enter workout details for each day of the week.")
-        for day_index, day in enumerate(self.week):
-            print(f"\nDay: {days[day_index]}")
-            activity_count = int(input("Enter the number of activities for this day: "))
-            total_time = 0
-            for x in range(activity_count):
-                print(f"\nActivity {x + 1}:")
-                muscle_group = input("Muscle group: ")
-                workout = input("Workout: ")
-                time = int(input("Time (minutes): "))
-                reps = input("Reps: ")
-                total_time += time
-                self.week[day_index].append({
-                    "muscle_group": muscle_group,
-                    "workout": workout,
-                    "time": time,
-                    "reps": reps
-                })
+        print ("____________________________________________")
+        print("|             # Visualization                 |")
+        print("|_____________________________________________|")
+        User_Imput_sample_data = [
+        [{"muscle_group": "Legs", "workout": "Squats", "time": 30, "reps": "10"},
+         {"muscle_group": "Arms", "workout": "Push-ups", "time": 20, "reps": "15"}],  # Monday
+        [{"muscle_group": "Chest", "workout": "Bench Press", "time": 45, "reps": "12"},
+         {"muscle_group": "Back", "workout": "Pull-ups", "time": 25, "reps": "8"}],   # Tuesday
+        [{"muscle_group": "Shoulders", "workout": "Shoulder Press", "time": 35, "reps": "10"}], # Wednesday
+        [{"muscle_group": "Core", "workout": "Planks", "time": 15, "reps": "30"}],    # Thursday
+        [{"muscle_group": "Legs", "workout": "Lunges", "time": 25, "reps": "12"}],    # Friday
+        [{"muscle_group": "Arms", "workout": "Bicep Curls", "time": 20, "reps": "15"}],  # Saturday
+        [{"muscle_group": "Back", "workout": "Deadlifts", "time": 40, "reps": "10"}]     # Sunday
+        ]
+        for day_index, day_data in enumerate(User_Imput_sample_data):
+            total_time = sum(activity["time"] for activity in day_data)
             total_times.append(total_time)
-        plt.bar(days, total_times, color='green')
+        plt.bar(days, total_times, color='blue')
         plt.xlabel('Day of the Week')
         plt.ylabel('Total Workout time (minutes)')
         plt.title('Total Workout time for Each Day of the Week')
         plt.tight_layout()
         plt.show()
-        print(" ")
-        print("Thanks for Providing the Data, Hope you Enjoy!")
-        print("______________________________________________")
+        print("\n")
+
+    # Designed by Kanyi
+    # f-strings
+    def workout_summary(self):
+        '''
+        Create a workout summary information with f-strings containing expressions.
+        Returns: 
+            String: A summary of the tracker's information.
+        '''
+        total_days_count = len(self.week)
+        total_activities = sum(len(day) for day in self.week)
+        avg_activities_per_day = total_activities / total_days_count if total_days_count > 0 else 0
+        return f"Total days: {total_days_count}, Total activities: {total_activities}, Average activities per day: {avg_activities_per_day:.2f}"
         
-    
 # Designed by Kanyi
 def display_summary(tracker):
     '''
@@ -247,7 +251,6 @@ def display_summary(tracker):
             Printing out the workout summary for the week using the __str__ method
             of the Tracker class.
     '''
-    print("\n")
     print(f" Stay committed! Your weekly workout summary:\n{tracker}")
 
 def main():
@@ -264,7 +267,8 @@ def main():
     tracker.export_data("test.txt")
     print(tracker.max_reps(0))
     tracker.workout_visualization()  # Calling the workout_visualization method(Kanyi)
-    display_summary(tracker)  # Calling display_summary method(Kanyi)
+    display_summary(tracker)  # Calling display_summary (Kanyi)
+    print(tracker.workout_summary()) # Calling the workout summary method(Kanyi)
     tracker.__getitem__(int(input("Pick a day you would like to see your activity: ")))
 
 
