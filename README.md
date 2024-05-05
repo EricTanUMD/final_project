@@ -5,6 +5,8 @@ Files:
 * exercises.json: A json file containing recommended exercises for the respective function
 * tracker.py: The tracker, run this file do interact with the tracker.
 
+How to use: Simply run tracker.py and follow the instructions provided.
+
 | Method/Function | Primary Author | Techniques Demonstrated |
 | ------------- | ------------- | ------------- |
 | __init__  | Eric Tan  | regular expressions/generator expressions|
