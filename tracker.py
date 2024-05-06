@@ -179,6 +179,7 @@ class Tracker():
 
         
     # Created by Jaylen Carrillo (use of a conditional expression and optional parameter)
+    # going to come back to this (recently added optional parameter because i want to maybe add another functionality)
     def recommend_exercises(self, muscle_group, num_exercises=3):
         """ Recommends up to three random exercises for the specified muscle
         group by looking up the class's exercises dictionary.
