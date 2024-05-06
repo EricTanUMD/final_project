@@ -66,8 +66,7 @@ class Tracker():
                                 "reps": match.group("reps")
                             })
                             
-    # Created by Jaylen Carrillo
-    # Use of json.load 
+    # Created by Jaylen Carrillo (use of json.load)
     def load_exercise_data(self, filepath):
         """ Loads exercise data from a exercise.json file into the 'exercises' 
             attribute of the class.
@@ -75,6 +74,8 @@ class Tracker():
             Args:
                 filepath (str): The path to a JSON file containing exercise data.
             
+            Side effects:
+                Reads from a file specified by 'filepath'.
         """
         with open(filepath) as json_file:
             self.exercises = json.load(json_file)
