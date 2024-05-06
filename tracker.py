@@ -121,8 +121,8 @@ class Tracker():
             Args:
                 key (): Index of the day you wish to remove.
         """
-
-        self.week[key].clear()
+        self.week[key] = ""
+        
 
     def __getitem__(self, key):
         # Made by Ibrahim Barry
@@ -137,10 +137,20 @@ class Tracker():
             Raises:
                 IndexError: If day is out of range, function raises an index error.
         """
-        try:
-            return self.week[key]
-        except IndexError:
+        
+        print(key)
+        print(self.week)
+        days = {"Mo": 0, "Tu": 1, "We": 2, "Th": 3, "Fr": 4,
+                    "Sa": 5, "Su": 6}
+        if key > 6 or key < 0:
             raise IndexError("Day or activity is out of range")
+        else:
+            day_string = {day for day in days if days[day] == key}
+            print(day_string, " : ")
+            print(self.week[key])
+        ##   return self.week[day_index], Tracker.days.get(list(Tracker.days.keys())[day_index])
+        #except IndexError:
+            #raise IndexError("Day or activity is out of range")
 
     def export_data(self, filepath):
         # Peterson, With statements 
