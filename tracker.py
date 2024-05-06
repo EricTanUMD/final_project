@@ -277,6 +277,10 @@ def main():
     print("Enter the muscle group you want to focus on today: ")
     muscle_group = input().strip()
     recommended_exercises = tracker.recommend_exercises(muscle_group)
+    
+    # num_exercises = input("How many exercises do you want to output? (Minimum 3): ")
+    
+    
     print(f"Recommended exercises for {muscle_group}: {recommended_exercises}")
     tracker.export_data(input("Output file name: "))
     print(f"Maximum reps for Monday {tracker.max_reps(0)}")

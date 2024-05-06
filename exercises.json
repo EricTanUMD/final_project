@@ -1,8 +1,13 @@
 {
-    "legs": ["Sumo Squats", "Lunges", "Leg Press", "Goblet Squats", "Calf Raises"],
-    "chest": ["Bench Press", "Incline Bench Press", "Dumbbell Flyes", "Push-ups"],
-    "core": ["Planks", "Russian Twists", "Leg Raises", "Cable Crossovers", "Mountain Climbers"],
-    "arms": ["Bicep Curls", "Tricep Dips", "Hammer Curls", "Concentration Curls", "Tricep Extensions"],
-    "back": ["Pull-ups", "Deadlifts", "Lat Pulldowns", "Bent Over Rows", "Seated Cable Rows", "Reverse Flyes"],
-    "shoulders": ["Shoulder Press", "Lateral Raises", "Front Raises", "Shrugs"]
+    "legs": ["Sumo Squats", "Lunges", "Leg Press", "Goblet Squats", "Calf Raises", "Leg Extensions", "Bulgarian Split Squats", "Step-ups"],
+
+    "chest": ["Bench Press", "Incline Bench Press", "Dumbbell Flyes", "Push-ups", "Dumbbell Bench Press", "Cable Crossover", "Chest Dips", "Decline Bench Press"],
+
+    "core": ["Planks", "Russian Twists", "Leg Raises", "Cable Crossovers", "Mountain Climbers", "Bicycle Crunches", "Side Planks", "Ab Crunches"],
+
+    "arms": ["Bicep Curls", "Tricep Dips", "Hammer Curls", "Concentration Curls", "Tricep Extensions", "Skull Crushers", "Preacher Curls", "Barbell Curl"],
+
+    "back": ["Pull-ups", "Deadlifts", "Lat Pulldowns", "Bent Over Rows", "Seated Cable Rows", "Reverse Flyes", "Cable Pullover", "Romanian Deadlifts"],
+    
+    "shoulders": ["Shoulder Press", "Lateral Raises", "Front Raises", "Shrugs", "Arnold Press", "Upright Rows", "Rear Delt Flyes", "Cable Lateral Raises"]
 }
