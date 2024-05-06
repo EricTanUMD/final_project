@@ -178,8 +178,7 @@ class Tracker():
         return f"Max reps from {weekdays[day]} is {other[0]['reps']}"
 
         
-    # Created by Jaylen Carrillo
-    # Conditional expression
+    # Created by Jaylen Carrillo (use of a conditional expression)
     def recommend_exercises(self, muscle_group):
         """ Recommends up to three random exercises for the specified muscle
         group by looking up the class's exercises dictionary.
@@ -199,7 +198,7 @@ class Tracker():
         # finds the list of exercises for the given muscle group
         recommended = self.exercises.get(muscle_group)
         # if not found, it will return this message
-        message = f"No exercises found for muscle group: {muscle_group}"
+        message = f"No exercises found for {muscle_group}"
         return random.sample(recommended, min(len(recommended), 3)) if recommended else message
     
     # Designed by Kanyi
