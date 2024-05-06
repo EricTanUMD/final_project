@@ -31,7 +31,7 @@ class Tracker():
         self.week = [[] for _ in range(7)]
     
         # externally stored exercises in json file created by Jaylen Carrillo
-        self.load_data('exercises.json')
+        self.load_exercise_data('exercises.json')
 
         if (path is not None):
             # All exercises come in the format
@@ -68,9 +68,13 @@ class Tracker():
                             
     # Created by Jaylen Carrillo
     # Use of json.load 
-    def load_data(self, filepath):
-        """
-        will come back to this
+    def load_exercise_data(self, filepath):
+        """ Loads exercise data from a exercise.json file into the 'exercises' 
+            attribute of the class.
+        
+            Args:
+                filepath (str): The path to a JSON file containing exercise data.
+            
         """
         with open(filepath) as json_file:
             self.exercises = json.load(json_file)
