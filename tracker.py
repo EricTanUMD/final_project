@@ -278,6 +278,7 @@ def main():
     muscle_group = input().strip()
     recommended_exercises = tracker.recommend_exercises(muscle_group)
     
+    # going to come back to this, i want to ask the user how many exercises they want so its not just fixed at 3
     # num_exercises = input("How many exercises do you want to output? (Minimum 3): ")
     
     
