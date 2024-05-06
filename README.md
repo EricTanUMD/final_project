@@ -9,7 +9,7 @@ How to use: Simply run tracker.py and follow the instructions provided.
 
 | Method/Function | Primary Author | Techniques Demonstrated |
 | ------------- | ------------- | ------------- |
-| __init__  | Eric Tan  | regular expressions/generator expressions|
+| __init__ & __str__  | Eric Tan  | regular expressions/generator expressions|
 |__getitem__ & __delitem__| Ibrahim Barry | magic methods/sequence unpacking |     
 | visualization (pyplot) & f-strings| Kanyi Adjanor | graphical representations of data using Matploylib library/ Expression inside a string literal to facilitate formatting and readability|
 | __export_data__ | Alexander Peterson | with statements|
