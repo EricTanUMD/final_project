@@ -11,3 +11,4 @@ How to use: Simply run tracker.py and follow the instructions provided.
 | ------------- | ------------- | ------------- |
 | __init__  | Eric Tan  | regular expressions/generator expressions|
 | |   ||
+|__getitem__ | Ibrahim Barry | magic methods/sequence unpacking |     
