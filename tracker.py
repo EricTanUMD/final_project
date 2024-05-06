@@ -275,7 +275,7 @@ def main():
     recommended_exercises = tracker.recommend_exercises(muscle_group)
     print(f"Recommended exercises for {muscle_group}: {recommended_exercises}")
     tracker.export_data("test.txt")
-    print(tracker.max_reps(0))
+    print(f"Maximum reps for Monday {tracker.max_reps(0)}")
     tracker.workout_visualization()  # Calling the workout_visualization method(Kanyi)
     display_summary(tracker)  # Calling display_summary (Kanyi)
     print(tracker.workout_summary()) # Calling the workout summary method(Kanyi)
