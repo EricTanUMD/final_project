@@ -15,4 +15,4 @@ How to use: Simply run tracker.py and follow the instructions provided.
 | __export_data__ | Alexander Peterson | with statements|
 |__max_reps__ | Alexander Peterson | key functions |
 | __recommend_exercises__ | Jaylen Carrillo | use of json.load |
-|  __load_exercise_data__ | Jaylen Carrillo | conditional expression |
+| __load_exercise_data__ | Jaylen Carrillo | conditional expression |
