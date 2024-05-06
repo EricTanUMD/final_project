@@ -164,17 +164,29 @@ class Tracker():
 
     Args:
         filepath: A file for the str method to write too.
+        
+    Returns: 
+        Txt of the string representation
+    
+    
     """
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(str(self))
 
     def max_reps(self, day):
+        """
+    A method that gives the maximum amount of reps from a specific day.
+
+        Args:
+            day: specific day of week M-S
+            
+        Returns: String with maximum amount of reps
+        """
         # Peterson, Keys
         weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday",
                     "Saturday", "Sunday"]
 
         other = sorted((self.week[day]), key=lambda s: s["reps"])
-
         return f"Max reps from {weekdays[day]} is {other[0]['reps']}"
 
         
