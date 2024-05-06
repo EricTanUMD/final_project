@@ -12,4 +12,6 @@ How to use: Simply run tracker.py and follow the instructions provided.
 | __init__  | Eric Tan  | regular expressions/generator expressions|
 |__getitem__ & __delitem__| Ibrahim Barry | magic methods/sequence unpacking |     
 | visualization (pyplot) & f-strings| Kanyi Adjanor | graphical representations of data using Matploylib library/ Expression inside a string literal to facilitate formatting and readability|
+| __export_data__ | Alexander Peterson | with statements|
+|__max_reps__ | Alexander Peterson | key functions |
 
