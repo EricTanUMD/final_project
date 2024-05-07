@@ -288,8 +288,15 @@ def main():
     """
     filename = input("Input file name: ")
     tracker = Tracker(filename)
-    print("Enter the muscle group you want to focus on today: ")
-    muscle_group = input().strip().lower()
+    # ask ta if its ok to hard code this part
+    valid_muscle_groups = ['legs', 'chest', 'core', 'arms', 'back', 'shoulders']
+    while True:
+        print("Enter the muscle group you want to focus on today: ")
+        muscle_group = input().strip() 
+        if muscle_group in valid_muscle_groups:
+            break
+        else:
+            print("*** Please input a valid muscle group (legs, chest, core, abs, arms, back, shoulders) ***")
     while True:
         num_exercises = int(input("How many exercises would you like for today's workout? Please choose a number between 3 and 8: "))
         if 3 <= num_exercises <= 8:
