@@ -78,8 +78,7 @@ class Tracker():
                 Reads from a file specified by 'filepath'.
         """
         with open(filepath) as json_file:
-            with open(filepath) as json_file:
-                self.exercises = json.load(json_file)
+            self.exercises = json.load(json_file)
     
     # Made by Eric Tan
     def __str__(self):
@@ -121,8 +120,6 @@ class Tracker():
         day_index = days[day_index]
         
         try:
-            print(day_index)
-            print(self.week)
             self.week[day_index].clear()
             print(self.week)
         except IndexError:
