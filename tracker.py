@@ -78,7 +78,9 @@ class Tracker():
                 Reads from a file specified by 'filepath'.
         """
         with open(filepath) as json_file:
-            self.exercises = json.load(json_file)
+            data = json.load(json_file)
+            for muscle_group, exercises in data.items():
+                self.exercises[muscle_group] = exercises #Ibrahim used sequence unpacking to pull muscle_group and exercises directly from JSON file.
     
     # Made by Eric Tan
     def __str__(self):
@@ -105,7 +107,7 @@ class Tracker():
     def __delitem__(self, day_index):
         # made by Ibrahim Barry, Magic Methods
         """
-        A method to delete an activity that has not been completed
+        A method to delete a day's worth of activities incompleted.
 
         Args:
             day_index (int) : Index of the day in the week (0 for Monday, 1 for Tuesday, 2 for Wednesday, etc.)
@@ -150,9 +152,7 @@ class Tracker():
             day_string = {day for day in days if days[day] == key}
             print(day_string, " : ")
             print(self.week[key])
-        ##   return self.week[day_index], Tracker.days.get(list(Tracker.days.keys())[day_index])
-        #except IndexError:
-            #raise IndexError("Day or activity is out of range")
+
 
     def export_data(self, filepath):
         # Peterson, With statements 
