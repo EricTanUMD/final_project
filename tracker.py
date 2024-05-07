@@ -101,33 +101,31 @@ class Tracker():
         # Day:
         # a line for each activity's information
 
-    def delete_activity(self, day_index, activity_index):
+
+    def __delitem__(self, day_index):
         # made by Ibrahim Barry, Magic Methods
         """
         A method to delete an activity that has not been completed
 
         Args:
             day_index (int) : Index of the day in the week (0 for Monday, 1 for Tuesday, 2 for Wednesday, etc.)
-            activity_index (int) : Index of the activity to delete
+           
 
         Raises:
             IndexError: If there is an index out of range, it will raise the index error.
         """
-
+        print()
+        days = {"Mo": 0, "Tu": 1, "We": 2, "Th": 3, "Fr": 4,
+                    "Sa": 5, "Su": 6}
+        day_index = days[day_index]
+        
         try:
-            del self.week[day_index][activity_index]
+            print(day_index)
+            print(self.week)
+            self.week[day_index].clear()
+            print(self.week)
         except IndexError:
             raise IndexError("Day or activity is out of range.")
-
-    def __delitem__(self, key):
-        # Made by Ibrahim Barry
-        """ Deletes an entire days worth of activities.
-
-            Args:
-                key (): Index of the day you wish to remove.
-        """
-        self.week[key] = ""
-        
 
     def __getitem__(self, key):
         # Made by Ibrahim Barry
@@ -143,8 +141,7 @@ class Tracker():
                 IndexError: If day is out of range, function raises an index error.
         """
         
-        print(key)
-        print(self.week)
+
         days = {"Mo": 0, "Tu": 1, "We": 2, "Th": 3, "Fr": 4,
                     "Sa": 5, "Su": 6}
         if key > 6 or key < 0:
@@ -305,8 +302,13 @@ def main():
     tracker.workout_visualization()  # Calling the workout_visualization method(Kanyi)
     display_summary(tracker)  # Calling display_summary (Kanyi)
     print(tracker.workout_summary()) # Calling the workout summary method(Kanyi)
-    tracker.__getitem__(int(input("Pick a day you would like to see your activity: ")))
-
+    tracker.__getitem__(int(input("Pick a day you would like to see your activity: "))) 
+    day_index = int(input("Choose a day to remove your activities from (0-6): "))
+    if 0 <= day_index <= 6:
+        del tracker.week[day_index]
+        print(f"Activities for day {day_index + 1} have been removed.")
+    else:
+        print("Invalid day entered. Please enter a number between 0 and 6.")
 
 if __name__ == "__main__":
     main()
