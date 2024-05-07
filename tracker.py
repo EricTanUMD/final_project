@@ -289,8 +289,7 @@ def main():
     filename = input("Input file name: ")
     tracker = Tracker(filename)
     print("Enter the muscle group you want to focus on today: ")
-    muscle_group = input().strip()      
-    
+    muscle_group = input().strip().lower()
     while True:
         num_exercises = int(input("How many exercises would you like for today's workout? Please choose a number between 3 and 8: "))
         if 3 <= num_exercises <= 8:
@@ -299,8 +298,6 @@ def main():
             print("Invalid input. Please enter a number between 3 and 8.")
     recommended_exercises = tracker.recommend_exercises(muscle_group, num_exercises)
     print(f"Recommended exercises for {muscle_group}: {recommended_exercises}")
-    
-    
     tracker.export_data(input("Output file name: "))
     print(f"Maximum reps for Monday {tracker.max_reps(0)}")
     tracker.workout_visualization()  # Calling the workout_visualization method(Kanyi)
