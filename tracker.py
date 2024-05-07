@@ -78,9 +78,8 @@ class Tracker():
                 Reads from a file specified by 'filepath'.
         """
         with open(filepath) as json_file:
-            data = json.load(json_file)
-            for muscle_group, exercises in data.items():
-                self.exercises[muscle_group] = exercises #Ibrahim used sequence unpacking to pull muscle_group and exercises directly from JSON file.
+            with open(filepath) as json_file:
+                self.exercises = json.load(json_file)
     
     # Made by Eric Tan
     def __str__(self):
