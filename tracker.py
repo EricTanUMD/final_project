@@ -290,6 +290,7 @@ def main():
     tracker = Tracker(filename)
     print("Enter the muscle group you want to focus on today: ")
     muscle_group = input().strip()
+    # need help coming up with a way where i can ask user to try again if they put an invalid muscle group without hard coding
     while True:
         num_exercises = int(input("How many exercises would you like for today's workout? Please choose a number between 3 and 8: "))
         if 3 <= num_exercises <= 8:
