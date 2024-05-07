@@ -205,7 +205,7 @@ class Tracker():
         # finds the list of exercises for the given muscle group
         recommended = self.exercises.get(muscle_group)
         # if not found, it will return this message
-        message = f"No exercises found for '{muscle_group}'. Please input a valid muscle group (legs, chest, core, abs, arms, back, shoulders)."
+        message = f"No exercises found for '{muscle_group}'. Please input a valid muscle group (legs, chest, core, abs, arms, back, shoulders, glutes)."
         return random.sample(recommended, min(len(recommended), num_exercises)) if recommended else message
     
     # Designed by Kanyi
