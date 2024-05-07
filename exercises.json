@@ -8,6 +8,8 @@
     "arms": ["Bicep Curls", "Tricep Dips", "Hammer Curls", "Concentration Curls", "Tricep Extensions", "Skull Crushers", "Preacher Curls", "Barbell Curl"],
 
     "back": ["Pull-ups", "Deadlifts", "Lat Pulldowns", "Bent Over Rows", "Seated Cable Rows", "Reverse Flyes", "Cable Pullover", "Romanian Deadlifts"],
-    
-    "shoulders": ["Shoulder Press", "Lateral Raises", "Front Raises", "Shrugs", "Arnold Press", "Upright Rows", "Rear Delt Flyes", "Cable Lateral Raises"]
+
+    "shoulders": ["Shoulder Press", "Lateral Raises", "Front Raises", "Shrugs", "Arnold Press", "Upright Rows", "Rear Delt Flyes", "Cable Lateral Raises"],
+
+    "glutes": ["Hip Thrusts", "Glute Bridges", "Cable Kickbacks", "Glute Ham Raise", "Single-Leg Deadlift", "Back Extensions", "Step-Ups", "Squats"]
 }
