@@ -191,7 +191,6 @@ class Tracker():
 
         
     # Created by Jaylen Carrillo (use of a conditional expression and optional parameter)
-    # going to come back to this (recently added optional parameter because i want to maybe add another functionality)
     def recommend_exercises(self, muscle_group, num_exercises=3):
         """ Recommends up to three random exercises for the specified muscle
         group by looking up the class's exercises dictionary.
@@ -288,13 +287,14 @@ def main():
     filename = input("Input file name: ")
     tracker = Tracker(filename)
     print("Enter the muscle group you want to focus on today: ")
-    muscle_group = input().strip()
-    recommended_exercises = tracker.recommend_exercises(muscle_group)
-    
-    # going to come back to this, i want to ask the user how many exercises they want so its not just fixed at 3
-    # num_exercises = input("How many exercises do you want to output? (Minimum 3): ")
-    
-    
+    muscle_group = input().strip()      
+    while True:
+        num_exercises = int(input("How many exercises would you like for today's workout? Please choose a number between 3 and 8: "))
+        if 3 <= num_exercises <= 8:
+            break
+        else:
+            print("Invalid input. Please enter a number between 3 and 8.")
+    recommended_exercises = tracker.recommend_exercises(muscle_group, num_exercises)
     print(f"Recommended exercises for {muscle_group}: {recommended_exercises}")
     tracker.export_data(input("Output file name: "))
     print(f"Maximum reps for Monday {tracker.max_reps(0)}")
