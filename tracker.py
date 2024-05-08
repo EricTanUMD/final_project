@@ -130,7 +130,7 @@ class Tracker():
         """ Allows user to find activities from a day using the same syntax as the __delitem__ function
 
             Args:
-                key (int): Number containing the day and the activity the user would like to access.
+                key (dict): Takes an integer associated with the day of the week, and returns the day in string and the activities from that day.
 
             Returns:
                 dict: Activity information.
