@@ -217,9 +217,7 @@ class Tracker():
         days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
         total_times = []
         print("\n")
-        print ("____________________________________________")
-        print("|             # Visualization                 |")
-        print("|_____________________________________________|")
+        print("__________# Visualization__________")
         User_Imput_sample_data = [
         [{"muscle_group": "Legs", "workout": "Squats", "time": 30, "reps": "10"},
          {"muscle_group": "Arms", "workout": "Push-ups", "time": 20, "reps": "15"}],  # Monday
@@ -272,7 +270,8 @@ def display_summary(tracker):
             Printing out the workout summary for the week using the __str__ method
             of the Tracker class.
     '''
-    print(f" Stay committed! Your weekly workout summary:\n{tracker}")
+    print(f"                    Stay committed!\n")
+    print(f" Your weekly workout summary:{tracker}")
 
 def main():
     """ Prompts the user to input a muscle group and prints a list of up to
